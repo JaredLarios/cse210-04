@@ -1,0 +1,2 @@
+# cse210-07
+This repoistory of programming with classess of BYU-Idaho - Teammates Erwin Larios, Dean Redito, Naomi, Ezequiel Alguera
