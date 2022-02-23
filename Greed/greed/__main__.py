@@ -42,7 +42,7 @@ def main():
     
     # create the robot
     x = int(MAX_X / 2)
-    y = int(MAX_Y / 2)
+    y = int(MAX_Y - 15)
     position = Point(x, y)
 
     robot = Actor()
@@ -58,11 +58,12 @@ def main():
         messages = data.splitlines()
 
     for n in range(DEFAULT_ARTIFACTS):
-        text = chr(random.randint(33, 126))
+        l = [42, 79]
+        text = chr(random.choice(l))
         message = messages[n]
 
         x = random.randint(1, COLS - 1)
-        y = random.randint(1, ROWS - 1)
+        y = 0
         position = Point(x, y)
         position = position.scale(CELL_SIZE)
 

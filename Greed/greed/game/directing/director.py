@@ -39,7 +39,7 @@ class Director:
         """
         robot = cast.get_first_actor("robots")
         velocity = self._keyboard_service.get_direction()
-        robot.set_velocity(velocity)        
+        robot.set_velocity(velocity)
 
     def _do_updates(self, cast):
         """Updates the robot's position and resolves any collisions with artifacts.
@@ -56,10 +56,11 @@ class Director:
         max_y = self._video_service.get_height()
         robot.move_next(max_x, max_y)
         
+        
         for artifact in artifacts:
             if robot.get_position().equals(artifact.get_position()):
-                message = artifact.get_message()
-                banner.set_text(message)    
+                cast.remove_actor("artifacts", artifact)
+                # banner.set_text(message)
         
     def _do_outputs(self, cast):
         """Draws the actors on the screen.
