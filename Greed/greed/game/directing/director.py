@@ -8,7 +8,7 @@ class Director:
         _video_service (VideoService): For providing video output.
     """
 
-    def __init__(self, keyboard_service, video_service):
+    def __init__(self, keyboard_service, video_service, artifact):
         """Constructs a new Director using the specified keyboard and video services.
         
         Args:
@@ -17,6 +17,7 @@ class Director:
         """
         self._keyboard_service = keyboard_service
         self._video_service = video_service
+        self._art = artifact
         
     def start_game(self, cast):
         """Starts the game using the given cast. Runs the main game loop.
@@ -41,6 +42,11 @@ class Director:
         velocity = self._keyboard_service.get_direction()
         robot.set_velocity(velocity)
 
+        
+        artifacts = cast.get_first_actor("artifacts")
+        velocity = self._art.falling()
+        artifacts.set_velocity(velocity)
+
     def _do_updates(self, cast):
         """Updates the robot's position and resolves any collisions with artifacts.
         
@@ -58,6 +64,7 @@ class Director:
         
         
         for artifact in artifacts:
+            artifact.move_next(max_x, max_y)
             if robot.get_position().equals(artifact.get_position()):
                 cast.remove_actor("artifacts", artifact)
                 # banner.set_text(message)

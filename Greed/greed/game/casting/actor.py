@@ -115,3 +115,19 @@ class Actor:
             velocity (Point): The given velocity.
         """
         self._velocity = velocity
+    
+    def falling(self):
+        """Gets the selected direction based on the currently pressed keys.
+         Returns:
+            Point: The selected direction.
+        """
+        dx = 0
+        dy = 0
+        
+        
+        dy += 1
+
+        direction = Point(dx, dy)
+        direction = direction.scale(1)
+        
+        return direction
