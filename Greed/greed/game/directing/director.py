@@ -65,8 +65,10 @@ class Director:
         
         for artifact in artifacts:
             artifact.move_next(max_x, max_y)
-            if robot.get_position().equals(artifact.get_position()):
+            if robot.get_position().equals(artifact.get_position()) or artifact.get_position().greater(max_y):
                 cast.remove_actor("artifacts", artifact)
+
+                print(artifact.get_position())
                 # banner.set_text(message)
         
     def _do_outputs(self, cast):

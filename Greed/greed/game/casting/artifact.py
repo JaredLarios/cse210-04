@@ -1,5 +1,5 @@
 from game.casting.actor import Actor
-
+from game.shared.point import Point
 
 class Artifact(Actor):
     """
@@ -29,3 +29,19 @@ class Artifact(Actor):
             message (string): The given message.
         """
         self._message = message
+    
+    def falling(self):
+        """Gets the selected direction based on the currently pressed keys.
+         Returns:
+            Point: The selected direction.
+        """
+        dx = 0
+        dy = 0
+        
+        
+        dy += 1
+
+        direction = Point(dx, dy)
+        direction = direction.scale(5)
+        
+        return direction

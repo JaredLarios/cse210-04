@@ -1,5 +1,6 @@
 from game.shared.color import Color
 from game.shared.point import Point
+from game.casting.cast import Cast
 
 
 class Actor:
@@ -23,6 +24,7 @@ class Actor:
         self._color = Color(255, 255, 255)
         self._position = Point(0, 0)
         self._velocity = Point(0, 0)
+        self._cast = Cast()
 
     def get_color(self):
         """Gets the actor's color as a tuple of three ints (r, g, b).
@@ -73,8 +75,9 @@ class Actor:
             max_y (int): The maximum y value.
         """
         x = (self._position.get_x() + self._velocity.get_x()) % max_x
-        y = (self._position.get_y() + self._velocity.get_y()) % max_y
-        self._position = Point(x, y)
+        y = (self._position.get_y() + self._velocity.get_y())
+
+        self._position = Point(x,y)
 
     def set_color(self, color):
         """Updates the color to the given one.
@@ -115,19 +118,3 @@ class Actor:
             velocity (Point): The given velocity.
         """
         self._velocity = velocity
-    
-    def falling(self):
-        """Gets the selected direction based on the currently pressed keys.
-         Returns:
-            Point: The selected direction.
-        """
-        dx = 0
-        dy = 0
-        
-        
-        dy += 1
-
-        direction = Point(dx, dy)
-        direction = direction.scale(1)
-        
-        return direction
