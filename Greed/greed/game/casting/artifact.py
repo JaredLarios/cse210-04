@@ -46,6 +46,6 @@ class Artifact(Actor):
         
         return direction
     
-    def move_down(self,max_x, max_y, list): 
+    def move_down(self,max_x, list): 
         for artifact in list:
             artifact.move_next(max_x)

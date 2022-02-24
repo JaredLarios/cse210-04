@@ -63,7 +63,7 @@ class Director:
         max_y = self._video_service.get_height()
         robot.move_next(max_x)
         
-        self._art.move_down(max_x, max_y, artifacts)
+        self._art.move_down(max_x, artifacts)
         
         for artifact in artifacts:
             
