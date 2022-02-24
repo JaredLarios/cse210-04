@@ -48,4 +48,4 @@ class Artifact(Actor):
     
     def move_down(self,max_x, max_y, list): 
         for artifact in list:
-            artifact.move_next(max_x, max_y)
+            artifact.move_next(max_x)

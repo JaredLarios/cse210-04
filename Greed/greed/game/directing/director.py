@@ -43,9 +43,10 @@ class Director:
         robot.set_velocity(velocity)
 
         
-        artifacts = cast.get_first_actor("artifacts")
-        velocity = self._art.falling()
-        artifacts.set_velocity(velocity)
+        artifacts = cast.get_actors("artifacts")
+        for arts in artifacts:
+            velocity = self._art.falling()
+            arts.set_velocity(velocity)
 
     def _do_updates(self, cast):
         """Updates the robot's position and resolves any collisions with artifacts.
@@ -60,7 +61,7 @@ class Director:
         banner.set_text("")
         max_x = self._video_service.get_width()
         max_y = self._video_service.get_height()
-        robot.move_next(max_x, max_y)
+        robot.move_next(max_x)
         
         self._art.move_down(max_x, max_y, artifacts)
         
