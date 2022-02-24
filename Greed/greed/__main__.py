@@ -20,7 +20,7 @@ MAX_Y = 600
 CELL_SIZE = 15
 FONT_SIZE = 15
 COLS = 60
-ROWS = 40
+ROWS = 120
 CAPTION = "Robot Finds Kitten"
 DATA_PATH = os.path.dirname(os.path.abspath(__file__)) + "/data/messages.txt"
 WHITE = Color(255, 255, 255)
@@ -42,7 +42,7 @@ def main():
     
     # create the robot
     x = int(MAX_X / 2)
-    y = int(MAX_Y - 15)
+    y = int(MAX_Y - 25)
     position = Point(x, y)
 
     robot = Actor()
@@ -63,7 +63,7 @@ def main():
         message = messages[n]
 
         x = random.randint(1, COLS - 1)
-        y = 0
+        y = random.randint(-ROWS*3 + 1, 1)
         position = Point(x, y)
         position = position.scale(CELL_SIZE)
 
