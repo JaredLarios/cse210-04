@@ -62,9 +62,10 @@ class Director:
         max_y = self._video_service.get_height()
         robot.move_next(max_x, max_y)
         
+        self._art.move_down(max_x, max_y, artifacts)
         
         for artifact in artifacts:
-            artifact.move_next(max_x, max_y)
+            
             if robot.get_position().equals(artifact.get_position()) or artifact.get_position().greater(max_y):
                 cast.remove_actor("artifacts", artifact)
 

@@ -45,3 +45,7 @@ class Artifact(Actor):
         direction = direction.scale(5)
         
         return direction
+    
+    def move_down(self,max_x, max_y, list): 
+        for artifact in list:
+            artifact.move_next(max_x, max_y)

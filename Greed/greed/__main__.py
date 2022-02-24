@@ -63,7 +63,7 @@ def main():
         message = messages[n]
 
         x = random.randint(1, COLS - 1)
-        y = -5
+        y = 0
         position = Point(x, y)
         position = position.scale(CELL_SIZE)
 
