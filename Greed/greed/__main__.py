@@ -58,8 +58,8 @@ def main():
         messages = data.splitlines()
 
     for n in range(DEFAULT_ARTIFACTS):
-        l = [42, 79]
-        text = chr(random.choice(l))
+        objects = [42, 79]
+        object = chr(random.choice(objects))
         message = messages[n]
 
         x = random.randint(1, COLS - 1)
@@ -73,7 +73,7 @@ def main():
         color = Color(r, g, b)
         
         artifact = Artifact()
-        artifact.set_text(text)
+        artifact.set_text(object)
         artifact.set_font_size(FONT_SIZE)
         artifact.set_color(color)
         artifact.set_position(position)
