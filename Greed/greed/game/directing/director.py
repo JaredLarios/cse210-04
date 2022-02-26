@@ -18,6 +18,7 @@ class Director:
         self._keyboard_service = keyboard_service
         self._video_service = video_service
         self._art = artifact
+        self._points = 0
         
     def start_game(self, cast):
         """Starts the game using the given cast. Runs the main game loop.
@@ -69,9 +70,10 @@ class Director:
             
             if robot.get_position().equals(artifact.get_position()) or artifact.get_position().greater(max_y):
                 cast.remove_actor("artifacts", artifact)
-
-                print(artifact.get_position())
-                # banner.set_text(message)
+                if robot.get_position().equals(artifact.get_position()) :
+                    self._points += 1 if artifact.get_text() == '*' else -1
+                    print(self._points)
+        banner.set_text(f'Score: {self._points}')
         
     def _do_outputs(self, cast):
         """Draws the actors on the screen.
