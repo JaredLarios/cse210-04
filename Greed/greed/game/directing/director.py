@@ -68,11 +68,12 @@ class Director:
         
         for artifact in artifacts:
             
-            if robot.get_position().equals(artifact.get_position()) or artifact.get_position().greater(max_y):
-                cast.remove_actor("artifacts", artifact)
-                if robot.get_position().equals(artifact.get_position()) :
-                    self._points += 1 if artifact.get_text() == '*' else -1
-                    print(self._points)
+            if artifact.get_position().greater(max_y):
+                artifact.reset()
+            elif robot.get_position().equals(artifact.get_position()) :
+                self._points += 1 if artifact.get_text() == '*' else -1
+                print(self._points)
+                artifact.reset()
         banner.set_text(f'Score: {self._points}')
         
     def _do_outputs(self, cast):

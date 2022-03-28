@@ -1,5 +1,4 @@
 import random
-
 from game.casting.actor import Actor
 from game.shared.point import Point
 
@@ -51,3 +50,9 @@ class Artifact(Actor):
     def move_down(self,max_x, list): 
         for artifact in list:
             artifact.move_next(max_x)
+
+    def reset(self):
+        position = Point(random.randint(1,899), 0)
+        position = position.scale(15)
+        self.set_position(position)
+        
